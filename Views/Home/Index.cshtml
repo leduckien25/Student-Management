@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Student>
+
+<div class="table-wrapper">
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Gender</th>
+				<th>Date of Birth</th>
+				<th>GPA</th>
+				<th>Image</th>
+				<th>Command</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var student in Model)
+			{
+				<tr>
+					<td>@student.StudentId</td>
+					<td>@student.Name</td>
+					<td>@(student.Gender ? "Male" : "Female")</td>
+					<td>@student.DateOfBirth.ToString("dd/MM/yyyy")</td>
+					<td>@student.GPA</td>
+					<td>
+						@if (!string.IsNullOrEmpty(@student.imageUrl))
+						{
+							<img src="/images/@student.imageUrl" alt="Student Image" width="100" style="margin-top: 10px;" />
+						}
+						else
+						{
+							<p><em>No image available</em></p>
+						}
+					</td>
+					<td>
+						<a href="/home/edit/@student.StudentId" class="command-link edit">Edit</a>
+						<a href="/home/delete/@student.StudentId" class="command-link delete">Delete</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

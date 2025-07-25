@@ -1,0 +1,29 @@
+﻿<form method="post" action="/home/add" enctype="multipart/form-data" class="form-container">
+	<div class="form-group">
+		<label>Name:</label>
+		<input type="text" name="Name" placeholder="Enter Name" required />
+	</div>
+
+	<div class="form-group">
+		<label>Gender:</label>
+		<label><input type="radio" name="Gender" value="true" required /> Male</label>
+		<label><input type="radio" name="Gender" value="false" /> Female</label>
+	</div>
+
+	<div class="form-group">
+		<label>Date of Birth:</label>
+		<input type="date" name="DateOfBirth" required />
+	</div>
+
+	<div class="form-group">
+		<label>GPA:</label>
+		<input type="number" step="0.01" name="GPA" placeholder="Enter GPA" required />
+	</div>
+
+	<div class="form-group">
+		<label>Image:</label>
+		<input type="file" name="image" accept="image/*" />
+	</div>
+
+	<button type="submit" class="submit-btn">Add</button>
+</form>

@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>@ViewData["Title"] - Student Management</title>
+	<link href="~/css/site.css" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+	<header class="fixed-header">
+		<nav class="nav-bar">
+			<div class="nav-brand">
+				<a href="/home">Student Management</a>
+			</div>
+			<div class="nav-links">
+				<a href="/home">Home</a>
+				<a href="/home/add">Add</a>
+				<a href="/home/about">About</a>
+			</div>
+		</nav>
+	</header>
+
+	<main>
+		@RenderBody()
+	</main>
+
+	<footer class="fixed-footer">
+		<p>© 2025 - Student Management</p>
+		<p>Developed by Duckien | <a href="mailto:duckienofficial@gmail.com">Contact</a> | <a href="/privacy">Privacy Policy</a></p>
+	</footer>
+
+</body>
+</html>
