@@ -16,7 +16,7 @@ A lightweight ASP.NET Core MVC web application for managing student records with
 * ASP.NET Core MVC (.NET 9)
 * Razor Views
 * SQL Server
-* Entity Framework Core
+* Dapper ORM
 * HTML, CSS
 
 ## ⚙️ Getting Started
