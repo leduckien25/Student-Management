@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Razor.Language.Intermediate;
 using WebMVC.Models;
 
 namespace WebMVC.Controllers
@@ -18,7 +19,9 @@ namespace WebMVC.Controllers
         public IActionResult Index()
         {
             ViewData["Title"] = "Home Page";
+
             var students = studentRepository.GetStudents();
+
             return View(students);
         }
         public IActionResult Add()
@@ -131,6 +134,25 @@ namespace WebMVC.Controllers
 
             studentRepository.Delete(id);
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Statistics()
+        {
+            ViewData["Title"] = "Statistics"; 
+
+            var students = studentRepository.GetStudents();
+
+            int total = students.Count();
+            int male = students.Where(student => student.Gender == true).Count();
+            int female = total - male;
+            decimal gpaAvg = students.Count() > 0 ? students.Select(student => student.GPA).Average() : 0;
+
+            ViewData["Total"] = total;
+            ViewData["Male"] = male;
+            ViewData["Female"] = female;
+            ViewData["AvgGPA"] = gpaAvg.ToString("F2");
+
+            return View();
         }
     }
 }

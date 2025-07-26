@@ -1,0 +1,24 @@
+﻿@{
+    int male = Convert.ToInt32(ViewData["Male"]);
+    int female = Convert.ToInt32(ViewData["Female"]);
+    int total = male + female;
+
+    double malePercent = total > 0 ? (male * 100.0) / total : 0;
+    double femalePercent = total > 0 ? (female * 100.0) / total : 0;
+}
+
+<h2>📊 Student Statistics</h2>
+
+<ul>
+    <li><strong>Total Students:</strong> @total</li>
+    <li><strong>Male:</strong> @male</li>
+    <li><strong>Female:</strong> @female</li>
+    <li><strong>Average GPA:</strong> @ViewData["AvgGPA"]</li>
+</ul>
+
+<h3>Gender Radio</h3>
+<div class="bar-chart">
+    <div class="bar male" style="width:@malePercent%">@male (@Math.Round(malePercent, 1)%)</div>
+    <div class="bar female" style="width:@femalePercent%">@female (@Math.Round(femalePercent, 1)%)</div>
+
+</div>
